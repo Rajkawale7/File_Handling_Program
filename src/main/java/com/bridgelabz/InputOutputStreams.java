@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class InputOutputStreams {
     public static void main(String[] args) {
-        System.out.println("**Welcome to the File Handling Demo Program**");
         createFile();
-}
+        getFileInformation();
+
+    }
     private static void createFile() {
         try {
 
@@ -24,6 +25,22 @@ public class InputOutputStreams {
         } catch (IOException e) {
             System.out.println("An unexpected error is occurred.");
             e.printStackTrace();
+        }
+    }
+
+    private static void getFileInformation() {
+        //Creating an object
+        File file = new File("C:\\Users\\Raj Kawale\\OneDrive\\Desktop\\JavaProgram\\FileHandling\\Demo.txt");
+        if(file.exists()) {
+            System.out.println("File name is: " + file.getName());
+            System.out.println("Is File Readable: " + file.canRead());
+            System.out.println("Is File Writable: " + file.canWrite());
+            System.out.println("Is File Executable: " + file.canExecute());
+            System.out.println("The Absolute path of File is: " + file.getAbsolutePath());
+            System.out.println("The path of File is:  " + file.getPath());
+            System.out.println("The length of file:  " + file.length());
+        } else {
+            System.out.println("The file does not exist.");
         }
     }
 }
