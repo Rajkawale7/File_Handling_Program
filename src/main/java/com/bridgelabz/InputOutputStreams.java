@@ -7,9 +7,10 @@ import java.util.Scanner;
 
 public class InputOutputStreams {
     public static void main(String[] args) {
+        System.out.println("**Welcome to the File Handling Demo Program**");
         createFile();
         getFileInformation();
-
+        writingToFile();
     }
     private static void createFile() {
         try {
@@ -41,6 +42,28 @@ public class InputOutputStreams {
             System.out.println("The length of file:  " + file.length());
         } else {
             System.out.println("The file does not exist.");
+        }
+    }
+
+    private static void writingToFile() {
+        try {
+            //Creating file object to write the contents into file
+            File file = new File("C:\\Users\\Raj Kawale\\OneDrive\\Desktop\\JavaProgram\\FileHandling\\Demo.txt");
+
+            //Creating an object to write the contents into file
+            FileWriter fileWriter = new FileWriter(file);
+
+            //Writing the contents for file
+            String contentOfFile="*** Welcome to the File Handling Program ***";
+
+            //Inserting the contents into File
+            fileWriter.write(contentOfFile);
+
+            //Closing the stream of data or file
+            fileWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
