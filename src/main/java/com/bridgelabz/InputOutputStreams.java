@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class InputOutputStreams {
     public static void main(String[] args) {
+        System.out.println("**Welcome to the File Handling Demo Program**");
         createFile();
 }
     private static void createFile() {
