@@ -11,6 +11,7 @@ public class InputOutputStreams {
         createFile();
         getFileInformation();
         writingToFile();
+        readFile();
     }
     private static void createFile() {
         try {
@@ -63,6 +64,25 @@ public class InputOutputStreams {
             fileWriter.close();
 
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void readFile() {
+        try {
+            //Creating an object of the file to read data
+            File file = new File("C:\\Users\\Raj Kawale\\OneDrive\\Desktop\\JavaProgram\\FileHandling\\Demo.txt");
+
+            Scanner scanner = new Scanner(file);
+            while(scanner.hasNextLine()){
+                String readLine = scanner.nextLine();
+                System.out.println(readLine);
+            }
+
+            //Closing the stream of data or file
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
